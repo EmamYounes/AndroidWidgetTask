@@ -24,5 +24,11 @@
         android:paddingTop="16dp"
         android:paddingRight="16dp" />
 
-
+    <com.example.androidwidgettask.ticket.ui.TicketCardView
+        android:id="@+id/ticketCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp" />
 </LinearLayout>

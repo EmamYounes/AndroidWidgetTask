@@ -6,6 +6,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.androidwidgettask.R
 import com.example.androidwidgettask.my_requests.ui.MyRequestViewModel
+import com.example.androidwidgettask.ticket.data.TicketData
+import com.example.androidwidgettask.ticket.ui.TicketViewModel
 import com.example.androidwidgettask.upcoming_event.data.UpcomingEventData
 import com.example.androidwidgettask.upcoming_event.ui.UpcomingEventViewModel
 import com.example.androidwidgettask.utilities.InjectorUtils
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initializeMyRequestUi()
         initializeUpcomingEvent()
+        initializeTicket()
     }
 
     private fun initializeMyRequestUi() {
@@ -43,6 +46,22 @@ class MainActivity : AppCompatActivity() {
         )
         viewModel.getUpcomingData().observe(this, Observer { data ->
             upcomingEventCardView.setUpcomingData(data = data as UpcomingEventData)
+        })
+
+    }
+
+    private fun initializeTicket() {
+        val factory = InjectorUtils.providerTicketViewModelFactory()
+        val viewModel = ViewModelProviders.of(this, factory)
+            .get(TicketViewModel::class.java)
+        viewModel.setTicketData(
+            TicketData(
+                "Monday, 21 Oct 2020 - 3:00 PM",
+                "Rainroom"
+            )
+        )
+        viewModel.getTicketData().observe(this, Observer { data ->
+            ticketCardView.setUpTicketData(data = data as TicketData)
         })
 
     }

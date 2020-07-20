@@ -5,4 +5,6 @@
     <string name="view_all">View All</string>
     <string name="upcoming_event">Upcoming Event</string>
     <string name="_14_sep_18_sep_9_00_am">14 Sep - 18 Sep | 9:00 AM</string>
+    <string name="tickets">Tickets</string>
+    <string name="show_ticket">Show Ticket</string>
 </resources>
