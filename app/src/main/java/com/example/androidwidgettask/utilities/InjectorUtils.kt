@@ -9,6 +9,9 @@ import com.example.androidwidgettask.ticket.repo.TicketRepo
 import com.example.androidwidgettask.ticket.ui.TicketViewModelFactory
 import com.example.androidwidgettask.upcoming_event.data.UpcomingEventDataBase
 import com.example.androidwidgettask.upcoming_event.ui.UpcomingEventViewModelFactory
+import com.example.androidwidgettask.weather.model.WeatherDataBase
+import com.example.androidwidgettask.weather.repo.WeatherRepo
+import com.example.androidwidgettask.weather.ui.WeatherViewModelFactory
 
 object InjectorUtils {
     fun providerMyRequestViewModelFactory(): MyRequestViewModelFactory {
@@ -26,5 +29,11 @@ object InjectorUtils {
         val ticketRepo =
             TicketRepo.getInstance(TicketDataBase.getInstance().ticketDao)
         return TicketViewModelFactory(ticketRepo)
+    }
+
+    fun providerWeatherViewModelFactory(): WeatherViewModelFactory {
+        val weatherRepo =
+            WeatherRepo.getInstance(WeatherDataBase.getInstance().weatherDao)
+        return WeatherViewModelFactory(weatherRepo)
     }
 }

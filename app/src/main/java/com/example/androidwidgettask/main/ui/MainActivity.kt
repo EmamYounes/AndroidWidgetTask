@@ -10,7 +10,10 @@ import com.example.androidwidgettask.ticket.data.TicketData
 import com.example.androidwidgettask.ticket.ui.TicketViewModel
 import com.example.androidwidgettask.upcoming_event.data.UpcomingEventData
 import com.example.androidwidgettask.upcoming_event.ui.UpcomingEventViewModel
+import com.example.androidwidgettask.utilities.AddLocalData
 import com.example.androidwidgettask.utilities.InjectorUtils
+import com.example.androidwidgettask.weather.model.WeatherDataModel
+import com.example.androidwidgettask.weather.ui.WeatherViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,13 +24,14 @@ class MainActivity : AppCompatActivity() {
         initializeMyRequestUi()
         initializeUpcomingEvent()
         initializeTicket()
+        initializeWeather()
     }
 
     private fun initializeMyRequestUi() {
         val factory = InjectorUtils.providerMyRequestViewModelFactory()
         val viewModel = ViewModelProviders.of(this, factory)
             .get(MyRequestViewModel::class.java)
-        viewModel.setPendingRequestNumber("12")
+        AddLocalData().addPendingNumberLocalData(viewModel)
         viewModel.getPendingRequestNumber().observe(this, Observer { number ->
             myRequestCardView.setPendingRequestNumber(number.toString())
         })
@@ -38,12 +42,7 @@ class MainActivity : AppCompatActivity() {
         val factory = InjectorUtils.providerUpcomingEventViewModelFactory()
         val viewModel = ViewModelProviders.of(this, factory)
             .get(UpcomingEventViewModel::class.java)
-        viewModel.setUpcomingData(
-            UpcomingEventData(
-                "14 Sep - 18 Sep | 9:00 AM",
-                "March Meeting 2020: Unravelling the Present"
-            )
-        )
+        AddLocalData().addUpcomingLocalData(viewModel)
         viewModel.getUpcomingData().observe(this, Observer { data ->
             upcomingEventCardView.setUpcomingData(data = data as UpcomingEventData)
         })
@@ -54,14 +53,23 @@ class MainActivity : AppCompatActivity() {
         val factory = InjectorUtils.providerTicketViewModelFactory()
         val viewModel = ViewModelProviders.of(this, factory)
             .get(TicketViewModel::class.java)
-        viewModel.setTicketData(
-            TicketData(
-                "Monday, 21 Oct 2020 - 3:00 PM",
-                "Rainroom"
-            )
-        )
+        AddLocalData().addTicketLocalData(viewModel)
         viewModel.getTicketData().observe(this, Observer { data ->
             ticketCardView.setUpTicketData(data = data as TicketData)
+        })
+
+    }
+
+
+    private fun initializeWeather() {
+        val factory = InjectorUtils.providerWeatherViewModelFactory()
+        val viewModel = ViewModelProviders.of(this, factory)
+            .get(WeatherViewModel::class.java)
+        AddLocalData().addWeatherLocalData(viewModel)
+        viewModel.getWeatherData().observe(this, Observer { data ->
+            val weatherDataModel = data as WeatherDataModel
+            weatherListView.addWeatherData(weatherData = weatherDataModel.weatherData)
+            weatherListView.addWeatherList(list = weatherDataModel.weatherListModel)
         })
 
     }
