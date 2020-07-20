@@ -3,14 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGray"
+    android:background="@color/colorLightWhite"
+    android:orientation="vertical"
     tools:context=".main.ui.MainActivity">
 
     <com.example.androidwidgettask.my_requests.ui.MyRequestCardView
         android:id="@+id/myRequestCardView"
         android:layout_width="match_parent"
-        android:padding="16dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp" />
+
+
+    <com.example.androidwidgettask.upcoming_event.ui.UpcomingEventCardView
+        android:id="@+id/upcomingEventCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp" />
 
 
 </LinearLayout>

@@ -6,6 +6,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.androidwidgettask.R
 import com.example.androidwidgettask.my_requests.ui.MyRequestViewModel
+import com.example.androidwidgettask.upcoming_event.data.UpcomingEventData
+import com.example.androidwidgettask.upcoming_event.ui.UpcomingEventViewModel
 import com.example.androidwidgettask.utilities.InjectorUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -15,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeMyRequestUi()
+        initializeUpcomingEvent()
     }
 
     private fun initializeMyRequestUi() {
@@ -24,6 +27,22 @@ class MainActivity : AppCompatActivity() {
         viewModel.setPendingRequestNumber("12")
         viewModel.getPendingRequestNumber().observe(this, Observer { number ->
             myRequestCardView.setPendingRequestNumber(number.toString())
+        })
+
+    }
+
+    private fun initializeUpcomingEvent() {
+        val factory = InjectorUtils.providerUpcomingEventViewModelFactory()
+        val viewModel = ViewModelProviders.of(this, factory)
+            .get(UpcomingEventViewModel::class.java)
+        viewModel.setUpcomingData(
+            UpcomingEventData(
+                "14 Sep - 18 Sep | 9:00 AM",
+                "March Meeting 2020: Unravelling the Present"
+            )
+        )
+        viewModel.getUpcomingData().observe(this, Observer { data ->
+            upcomingEventCardView.setUpcomingData(data = data as UpcomingEventData)
         })
 
     }

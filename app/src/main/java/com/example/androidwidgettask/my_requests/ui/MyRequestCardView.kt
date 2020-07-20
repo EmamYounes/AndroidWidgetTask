@@ -19,7 +19,6 @@ class MyRequestCardView @JvmOverloads constructor(
     init {
         LayoutInflater.from(context)
             .inflate(R.layout.my_requests, this, true)
-        val factory = InjectorUtils.providerMyRequestViewModelFactory()
     }
 
     fun setPendingRequestNumber(pendingRequestNumber: String) {
