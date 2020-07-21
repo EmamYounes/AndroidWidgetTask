@@ -8,4 +8,7 @@
     <string name="tickets">Tickets</string>
     <string name="show_ticket">Show Ticket</string>
     <string name="weather">Weather</string>
+    <string name="utilities_bills"><![CDATA[Utilities & Bills]]></string>
+    <string name="total_bills">Total Bills</string>
+    <string name="total_due">Total Due</string>
 </resources>

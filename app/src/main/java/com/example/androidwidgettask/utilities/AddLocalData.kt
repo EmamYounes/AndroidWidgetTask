@@ -1,5 +1,9 @@
 package com.example.androidwidgettask.utilities
 
+import com.example.androidwidgettask.bills.model.BillsData
+import com.example.androidwidgettask.bills.model.BillsDataModel
+import com.example.androidwidgettask.bills.model.BillsListModel
+import com.example.androidwidgettask.bills.ui.BillsViewModel
 import com.example.androidwidgettask.my_requests.ui.MyRequestViewModel
 import com.example.androidwidgettask.ticket.data.TicketData
 import com.example.androidwidgettask.ticket.ui.TicketViewModel
@@ -50,8 +54,20 @@ class AddLocalData {
         )
     }
 
-     fun addPendingNumberLocalData(viewModel: MyRequestViewModel) {
+    fun addPendingNumberLocalData(viewModel: MyRequestViewModel) {
         viewModel.setPendingRequestNumber("12")
+    }
+
+    fun addBillsLocalData(viewModel: BillsViewModel) {
+        val billsList = mutableListOf<BillsListModel>()
+        billsList.add(BillsListModel("SEWA Bill", "Due: 28 Jul 2020", "400 AED"))
+        billsList.add(BillsListModel("SEWA Bill", "Due: 28 Jul 2020", "400 AED"))
+        billsList.add(BillsListModel("SEWA Bill", "Due: 28 Jul 2020", "400 AED"))
+        billsList.add(BillsListModel("SEWA Bill", "Due: 28 Jul 2020", "400 AED"))
+        billsList.add(BillsListModel("SEWA Bill", "Due: 28 Jul 2020", "400 AED"))
+        billsList.add(BillsListModel("SEWA Bill", "Due: 28 Jul 2020", "400 AED"))
+        val billsDataModel = BillsDataModel(BillsData("1,200 AED", "950 AED"), billsList)
+        viewModel.addBillsData(billsDataModel)
     }
 
 }

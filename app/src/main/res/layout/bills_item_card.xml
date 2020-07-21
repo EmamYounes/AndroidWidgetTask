@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/colorWhite"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/bills_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="41dp"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="13sp"
+        tools:text="SEWA Bill" />
+
+    <TextView
+        android:id="@+id/bills_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="41dp"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="10sp"
+        tools:text="Due: 28 Jul 2020" />
+
+
+    <TextView
+        android:id="@+id/bills_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="13sp"
+        tools:text="400 AED" />
+
+
+</LinearLayout>

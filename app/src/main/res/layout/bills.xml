@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:src="@drawable/ic_weather">
+            android:src="@drawable/ic_group_7">
 
         </ImageView>
 
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="8dp"
-            android:text="@string/weather"
+            android:text="@string/utilities_bills"
             android:textColor="@color/colorBlack"
             android:textSize="13sp"
             android:textStyle="bold" />
@@ -33,84 +33,75 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:background="@color/colorWhite"
+        android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/ic_sun_svgrepo_com" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/total_bills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="41dp"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tool:text="1,200 AED" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="41dp"
+                android:gravity="center"
+                android:text="@string/total_bills"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="13sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/weather_day"
+                android:id="@+id/total_due"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/darkBlue"
-                android:textSize="13sp"
-                tool:text="Friday" />
-
-            <TextView
-                android:id="@+id/weather_city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/darkBlue"
-                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                tool:text="Sharjah" />
+                tool:text="950 AED" />
 
             <TextView
-                android:id="@+id/weather_state"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/darkBlue"
-                android:textSize="13sp"
-                tool:text="Mostly Clear" />
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/total_due"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="13sp" />
+
         </LinearLayout>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@color/darkBlue"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tool:text="22" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/darkBlue"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                tool:text="Now" />
-        </LinearLayout>
     </LinearLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/weather_list_view"
+        android:id="@+id/bills_list_view"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
-        tool:listitem="@layout/weather_item_card">
+        tool:listitem="@layout/bills_item_card">
 
     </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

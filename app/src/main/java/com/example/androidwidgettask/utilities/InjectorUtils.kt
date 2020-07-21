@@ -1,6 +1,9 @@
 package com.example.androidwidgettask.utilities
 
 import UpcomingEventRepo
+import com.example.androidwidgettask.bills.model.BillsDataBase
+import com.example.androidwidgettask.bills.repo.BillsRepo
+import com.example.androidwidgettask.bills.ui.BillsViewModelFactory
 import com.example.androidwidgettask.my_requests.data.MyRequestDataBase
 import com.example.androidwidgettask.my_requests.repo.MyRequestRepo
 import com.example.androidwidgettask.my_requests.ui.MyRequestViewModelFactory
@@ -35,5 +38,11 @@ object InjectorUtils {
         val weatherRepo =
             WeatherRepo.getInstance(WeatherDataBase.getInstance().weatherDao)
         return WeatherViewModelFactory(weatherRepo)
+    }
+
+    fun providerBillsViewModelFactory(): BillsViewModelFactory {
+        val billsRepo =
+            BillsRepo.getInstance(BillsDataBase.getInstance().billsDao)
+        return BillsViewModelFactory(billsRepo)
     }
 }
