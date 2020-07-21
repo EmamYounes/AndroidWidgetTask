@@ -8,7 +8,4 @@
     <string name="tickets">Tickets</string>
     <string name="show_ticket">Show Ticket</string>
     <string name="weather">Weather</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
 </resources>
