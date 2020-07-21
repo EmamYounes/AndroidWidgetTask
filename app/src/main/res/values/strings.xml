@@ -11,4 +11,5 @@
     <string name="utilities_bills"><![CDATA[Utilities & Bills]]></string>
     <string name="total_bills">Total Bills</string>
     <string name="total_due">Total Due</string>
+    <string name="activity">Activity</string>
 </resources>
